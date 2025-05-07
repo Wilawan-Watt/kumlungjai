@@ -1,8 +1,28 @@
+import { useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import KLJButton from './KLJ_Button'
 import Welcome from '../assets/KumlungJai.png'
 
 
 function Homepage() {
+    const [clickCount, setClickCount] = useState(0);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(clickCount === 4) {
+            setClickCount(0);
+            navigate('/admin-login');
+        }
+
+        const timeout = setTimeout(() => setClickCount(0), 2000);
+
+        return () => clearTimeout(timeout);
+    }, [clickCount, navigate]);
+
+    const handleSecretClick = () => {
+        setClickCount(prev => prev + 1);
+    };    
+
     const handleEncouragement = () => {
         console.log("รับข้อความกำลังใจ")
     };
@@ -22,7 +42,7 @@ function Homepage() {
 
     return (
         <div className='h-screen flex flex-col items-center justify-center'>
-            <img src={Welcome} alt='Welcome' className='w-xs mb-2' />
+            <img src={Welcome} alt='Welcome' className='w-xs mb-2' onClick={handleSecretClick} />
 
             <h1 className='font-bold text-2xl'>ยินดีต้อนรับสู่ "กำลังใจ" วันนี้คุณอยากได้ข้อความแบบไหนดี...</h1>
 
