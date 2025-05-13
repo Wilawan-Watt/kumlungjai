@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import KLJButton from './KLJ_Button'
 import MessageForm from './MessageForm'
 
-import WelcomeImg from '../assets/KumlungJai.png'
+import WelcomeImg from '../assets/Kumlungjai.png'
 import EncourageImg from '../assets/FB_123456.jpg';
 import WishImg from '../assets/FB_IMG_1706276058044.jpg';
 import ThankImg from '../assets/FB_IMG_1701615040226.jpg';
